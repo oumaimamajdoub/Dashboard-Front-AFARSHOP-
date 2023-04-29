@@ -9,21 +9,23 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { LockScreenComponent } from './lock-screen/lock-screen.component';
 import { SigninWithHeaderFooterComponent } from './signin-with-header-footer/signin-with-header-footer.component';
 import { SignupWithHeaderFooterComponent } from './signup-with-header-footer/signup-with-header-footer.component';
+import {FormsModule} from "@angular/forms";
 
 
 
 @NgModule({
   declarations: [
-    SignInComponent, 
+    SignInComponent,
     SignUpComponent,
-    ForgotPasswordComponent, 
-    ResetPasswordComponent, 
-    LockScreenComponent, 
+    ForgotPasswordComponent,
+    ResetPasswordComponent,
+    LockScreenComponent,
     SigninWithHeaderFooterComponent,
     SignupWithHeaderFooterComponent],
-  imports: [
-    CommonModule,
-    AuthRoutingModule
-  ]
+    imports: [
+        CommonModule,
+        AuthRoutingModule,
+        FormsModule
+    ]
 })
 export class AuthModule { }
