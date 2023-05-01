@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { HighchartsChartModule } from 'highcharts-angular';
+
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
@@ -13,6 +13,7 @@ import { DigitalMarketingComponent } from './digital-marketing/digital-marketing
 import { HumanResourcesComponent } from './human-resources/human-resources.component';
 
 
+
 @NgModule({
   declarations: [
      DefaultComponent, ECommerceComponent, AnalyticsComponent, DigitalMarketingComponent, HumanResourcesComponent
@@ -20,8 +21,8 @@ import { HumanResourcesComponent } from './human-resources/human-resources.compo
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    PerfectScrollbarModule,
-    HighchartsChartModule
+    PerfectScrollbarModule
+
   ]
 })
 export class DashboardModule { }

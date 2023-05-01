@@ -37,13 +37,7 @@ export class AuthService {
 
     let storageToken;
     const storageTokenAsStr = localStorage.getItem('token');
-    if (storageTokenAsStr){
-      try {
-        storageToken = JSON.parse(storageTokenAsStr);
-      } catch (e) {
-        console.error('Error parsing storageTokenAsStr', e);
-      }
-    }
+
     // tslint:disable-next-line:ban-types
     this.currentTokenSubject = new BehaviorSubject<String>(storageToken);
     this.currentToken = this.currentTokenSubject.asObservable();
@@ -61,7 +55,7 @@ export class AuthService {
         map(response => {
             if (response) {
               localStorage.setItem('user', JSON.stringify(response.user));
-              localStorage.setItem('token', JSON.stringify(response.token));
+              localStorage.setItem('token', response.token);
               this.currentUserSubject.next(response);
               console.log('login Service done successfully');
             }

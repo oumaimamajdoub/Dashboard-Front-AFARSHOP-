@@ -1,6 +1,7 @@
 export class User {
+  Userid!: number;
   firstname!: string;
-  lastName!: string;
+  lastname!: string;
   username!: string;
   email!: string;
   password!: string;
@@ -9,4 +10,5 @@ export class User {
   cin!: string;
   telNum!: string;
   locked!: boolean;
+  roles!:string;
 }

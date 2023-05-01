@@ -1,202 +1,85 @@
+<!--breadcrumb-->
+<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+  <div class="breadcrumb-title pe-3">Tables</div>
+  <div class="ps-3">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb mb-0 p-0">
+        <li class="breadcrumb-item"><a href="#" (click)="$event.preventDefault()"><i class="bx bx-home-alt"></i></a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Espace ADMIN</li>
+      </ol>
+    </nav>
+  </div>
+  <div class="ms-auto">
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary">Settings</button>
+      <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
+      </button>
+      <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">
+        <a class="dropdown-item" href="#" (click)="$event.preventDefault()">Action</a>
+        <a class="dropdown-item" href="#" (click)="$event.preventDefault()">Another action</a>
+        <a class="dropdown-item" href="#" (click)="$event.preventDefault()">Something else here</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#" (click)="$event.preventDefault()">Separated link</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end breadcrumb-->
+<div class="col-md-8">
+  <div class="form-group">
+    <label>Search </label>
+    <input type="text" class="form-control" (input)="onSearch($event.target.value)">
+  </div>
+
 <div class="row">
-    <div class="col-12 col-lg-12 col-xl-6">
-     <div class="row row-cols-1 row-cols-lg-2">
-         <div class="col">
-            <div class="card radius-10 overflow-hidden">
-                <div class="card-body">
-                  <div class="font-35 text-warning"><i class='bx bx-group'></i></div>
-                  <h3 class="mb-0 mt-0">928</h3>
-                  <p class="mb-0">Employee NPS</p>
-                </div>
-                <div id="emp-nps"></div>
-                </div>
-         </div>
-         <div class="col">
-            <div class="card radius-10 overflow-hidden">
-                <div class="card-body">
-                    <div class="font-35 text-primary"><i class='bx bx-dollar'></i></div>
-                  <h3 class="mb-0 mt-0">$20.2K</h3>
-                  <p class="mb-0 mt-1">Training Expenses</p>
-                </div>
-                <div id="training-expenses"></div>
-              </div>
-        </div>
-     </div>
+  <div class="col-xl-12 mx-auto">
+    <h6 class="mb-0 text-uppercase">User Management</h6>
+    <hr/>
 
-     <div class="row row-cols-1 row-cols-lg-2">
-         <div class="col">
-            <div class="card radius-10 overflow-hidden">
-                <div class="card-body">
-                    <div class="font-35 text-danger"><i class='bx bx-camera'></i></div>
-                    <h3 class="mb-0 mt-0">32</h3>
-                    <p class="mb-0 mt-1">CSR Activities</p>
-                </div>
-                <div id="csr-activities"></div>
-            </div>
-         </div>
 
-         <div class="col">
-            <div class="card radius-10 overflow-hidden">
-                <div class="card-body">
-                    <div class="font-35 text-success"><i class='bx bxs-face'></i></div>
-                    <h3 class="mb-0 mt-0">14</h3>
-                    <p class="mb-1">Starter This Month</p>
-                </div>
-                <div id="starter-this-month"></div>
-              </div>
-         </div>
-     </div>
-
-     <div class="card radius-10 overflow-hidden">
-        <div class="card-body">
-         <div class="d-flex align-items-center">
-           <div class="">
-             <h3 class="mb-0">78.49%</h3>
-             <p class="mb-0">Bounce Rate</p>
-           </div>
-           <div class="ms-auto">              
-             <div id="bounce-rate"></div>
-           </div>
-         </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="col-12 col-lg-12 col-xl-6">
-       <div class="card radius-10">
-          <div class="card-body">
-            <div id="submitted-application"></div>
-          </div>
-        </div>
-        <div class="card radius-10">
-         <div class="card-body">
-             <div id="users-status"></div>
-         </div>
-        </div>
-    </div>
-
-  </div><!--end row-->
-
-   <div class="row">
-        <div class="col-12 col-lg-8 col-xl-8">
-          <div class="card radius-10 overflow-hidden">
-           <div class="card-body">
-            <div class="d-flex align-items-center">
-                <div>
-                    <h6 class="mb-0">Recruitment Costs</h6>
-                </div>
-                <div class="font-22 ms-auto"><i class='bx bx-dots-horizontal-rounded'></i>
-                </div>
-            </div>
-              <div class="chart-container">
-                 <div id="recruitment-cost"></div>
-              </div>
-           </div>
-         </div>
-        </div>
-        <div class="col-12 col-lg-4 col-xl-4">
-          <div class="card radius-10">
-           <div class="card-body">
-            <div class="d-flex align-items-center">
-                <div>
-                    <h6 class="mb-0">Applications By Source</h6>
-                </div>
-                <div class="font-22 ms-auto"><i class='bx bx-dots-horizontal-rounded'></i>
-                </div>
-             </div>
-             <div class="chart-container d-flex align-items-center justify-content-center mt-3">
-                <div id="application-by-source"></div>
-             </div>
-           </div>
-         </div>
-        </div>
-      </div><!--end row-->
-
-  <div class="row">
-    <div class="col-12 col-lg-4 col-xl-4">
-       <div class="card radius-10">
-         <div class="card-body">
-           <div class="d-flex align-items-center">
-           <div class="">
-            <h3 class="mt-3 mb-0">54</h3>
-              <p class="mb-0">Screening Calls</p>
-           </div>
-             <div class="card-content dash-array-chart-box ms-auto">
-              <div id="screening-calls"></div>
-             </div>
-           </div>
-         </div>
-       </div>
-       <div class="card radius-10">
-         <div class="card-body">
-           <div class="d-flex align-items-center">
-           <div class="">
-            <h3 class="mt-3 mb-0">82</h3>
-              <p class="mb-0">Assignments</p>
-           </div>
-             <div class="card-content dash-array-chart-box ms-auto">
-              <div id="assignments"></div>
-             </div>
-           </div>
-         </div>
-       </div>
-       <div class="card radius-10">
-         <div class="card-body">
-           <div class="d-flex align-items-center">
-           <div class="">
-            <h3 class="mt-3 mb-0">92</h3>
-              <p class="mb-0">Interviews</p>
-           </div>
-             <div class="card-content dash-array-chart-box ms-auto">
-              <div id="interviews"></div>
-             </div>
-           </div>
-         </div>
-       </div>
-    </div>
-    <div class="col-12 col-lg-4 col-xl-4">
-      <div class="card radius-10">
-        <div class="card-body">
-            <div class="d-flex align-items-center">
-                <div>
-                    <h6 class="mb-0">Vacancies Status</h6>
-                </div>
-                <div class="font-22 ms-auto"><i class='bx bx-dots-horizontal-rounded'></i>
-                </div>
-             </div>
-           <div class="text-center chart-container-9 d-flex align-items-center justify-content-center">
-            <div id="vacancies-status"></div>
-          </div>
-         </div>
-         <div class="card-footer bg-transparent border-top">
-         <div class="row align-items-center text-center">
-           <div class="col border-end">
-            <h4 class="mb-0">452</h4>
-            <small class="extra-small-font">Filled Vacancies</small>
-         </div>
-           <div class="col">
-          <h4 class="mb-0">680</h4>
-          <small class="extra-small-font">Total Vacancies</small>
-         </div>
-         </div>
-        </div>
+    <div class="card">
+      <div class="card-body">
+        <table class="table mb-0 table-dark table-striped">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">id</th>
+            <th scope="col">username</th>
+            <th scope="col">firstname</th>
+            <th scope="col">lastname</th>
+            <th scope="col">email</th>
+            <th scope="col">address</th>
+            <th scope="col">cin</th>
+            <th scope="col">telNum</th>
+            <th scope="col">roles</th>
+            <th scope="col">dayOfBirth</th>
+            <th scope="col">ActionD</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let user of users; let i = index" [class.active]="user === selectedUser" (click)="onSelect(user)">
+            <td>{{ i + 1 }}</td>
+            <td>{{ user.Userid}}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.firstname }}</td>
+            <td>{{ user.lastname }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.address }}</td>
+            <td>{{ user.cin }}</td>
+            <td>{{ user.telNum }}</td>
+            <td>{{ user.roles }}</td>
+            <td>{{ user.dayOfBirth }}</td>
+            <td><a href="javascript:void(0)"><i class='fa fa-edit f-12'></i></a>&nbsp;
+              <a href="javascript:void(0)" (click)="deleteById(user.id)">delete</a></td>
+          </tr>
+          </tbody>
+        </table>
       </div>
     </div>
-    <div class="col-12 col-lg-4 col-xl-4">
-      <div class="card radius-10">
-       <div class="card-body">
-        <div class="d-flex align-items-center">
-            <div>
-                <h6 class="mb-0">Top Referrers</h6>
-            </div>
-            <div class="font-22 ms-auto"><i class='bx bx-dots-horizontal-rounded'></i>
-            </div>
-         </div>
-          <div class="">
-            <div id="top-referrers"></div>
-          </div>
-       </div>
-     </div>
-    </div>
-  </div><!--end row-->
+
+  </div>
+</div>
+<!--end row-->
+
+
