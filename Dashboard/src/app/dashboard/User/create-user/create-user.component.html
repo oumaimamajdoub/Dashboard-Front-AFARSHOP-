@@ -31,9 +31,6 @@
             <div class="card mt-5">
               <div class="card-body">
                 <div class="border p-4 rounded">
-                  <div class="text-center">
-                    <h3 class="">Sign Up</h3>
-                  </div>
                   <div class="form-body">
                     <form class="form-horizontal auth-form" novalidate
                           name="form"
@@ -42,9 +39,9 @@
                           #f="ngForm"
                           novalidate>
                       <div class="col-sm-6">
-                        <label  class="form-label">First Name</label>
+                        <label  class="form-label">User Name</label>
                         <input type="text" class="form-control" placeholder="Enter username"
-                               name="firstname"
+                               name="username"
                                [(ngModel)]="form.username"
 
                                required
@@ -52,13 +49,22 @@
                                [ngClass]="{ 'is-invalid': f.submitted && username.errors }">
                       </div>
                       <div class="col-sm-6">
-                        <label  class="form-label">Last Name</label>
+                        <label  class="form-label">First Name</label>
                         <input type="text" class="form-control" placeholder="Enter firstname"
                                name="firstname"
                                [(ngModel)]="form.firstname"
                                required
                                #firstname="ngModel"
                                [ngClass]="{ 'is-invalid': f.submitted && firstname.errors }">
+                      </div>
+                      <div class="col-sm-6">
+                        <label  class="form-label">Last Name</label>
+                        <input type="text" class="form-control" placeholder="Enter firstname"
+                               name="firstname"
+                               [(ngModel)]="form.lastname"
+                               required
+                               #lastname="ngModel"
+                               [ngClass]="{ 'is-invalid': f.submitted && lastname.errors }">
                       </div>
                       <div class="col-12">
                         <label  class="form-label">Email Address</label>

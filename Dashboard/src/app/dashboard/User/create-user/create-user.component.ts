@@ -53,7 +53,7 @@ userId:any
   onAddUser(): void {
 
 
-if (this.userId && this.userId===""){
+if (this.userId && this.userId!==""){
   this.updateUser();
 }else{
   this.addUser();
