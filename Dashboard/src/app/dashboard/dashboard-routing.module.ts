@@ -6,6 +6,7 @@ import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { DigitalMarketingComponent } from './digital-marketing/digital-marketing.component';
 import { HumanResourcesComponent } from './human-resources/human-resources.component';
+import {CreateUserComponent} from "./User/create-user/create-user.component";
 
 const routes: Routes = [
   {
@@ -44,6 +45,20 @@ const routes: Routes = [
         component: HumanResourcesComponent,
         data: {
           title: 'Human Resources'
+        }
+      },
+      {
+        path: 'human-resources/user/:id',
+        component: CreateUserComponent,
+        data: {
+          title: 'editUser'
+        }
+      },
+      {
+        path: 'human-resources/user/add',
+        component: CreateUserComponent,
+        data: {
+          title: 'addUser'
         }
       },
     ]

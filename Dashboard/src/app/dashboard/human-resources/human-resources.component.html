@@ -29,7 +29,7 @@
 <div class="col-md-8">
   <div class="form-group">
     <label>Search </label>
-    <input type="text" class="form-control" (input)="onSearch($event.target.value)">
+    <input type="text" class="form-control" ><!--(input)="onSearch($event.target.value)"-->
   </div>
 
 <div class="row">
@@ -44,6 +44,8 @@
           <thead>
           <tr>
             <th scope="col">#</th>
+            <th scope="col">Action</th>
+            <th scope="col"></th>
             <th scope="col">id</th>
             <th scope="col">username</th>
             <th scope="col">firstname</th>
@@ -54,14 +56,15 @@
             <th scope="col">telNum</th>
             <th scope="col">roles</th>
             <th scope="col">dayOfBirth</th>
-            <th scope="col">ActionD</th>
           </tr>
           </thead>
           <tbody>
           <tr *ngFor="let user of users; let i = index" [class.active]="user === selectedUser" (click)="onSelect(user)">
-            <td>{{ i + 1 }}</td>
-            <td>{{ user.Userid}}</td>
+            <td>{{ user.userId }}</td>
+            <td><button type="button" class="btn btn-danger" (click)="deleteById(i)">Delete</button></td>
+            <td><button type="button" (click)="edit(user.userId)" class="btn btn-warning" >Edit</button></td>
             <td>{{ user.username }}</td>
+            <td>{{ user.UserId}}</td>
             <td>{{ user.firstname }}</td>
             <td>{{ user.lastname }}</td>
             <td>{{ user.email }}</td>
@@ -70,8 +73,6 @@
             <td>{{ user.telNum }}</td>
             <td>{{ user.roles }}</td>
             <td>{{ user.dayOfBirth }}</td>
-            <td><a href="javascript:void(0)"><i class='fa fa-edit f-12'></i></a>&nbsp;
-              <a href="javascript:void(0)" (click)="deleteById(user.id)">delete</a></td>
           </tr>
           </tbody>
         </table>

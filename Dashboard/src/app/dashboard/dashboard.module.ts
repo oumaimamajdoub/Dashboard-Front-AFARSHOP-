@@ -11,14 +11,16 @@ import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { DigitalMarketingComponent } from './digital-marketing/digital-marketing.component';
 import { HumanResourcesComponent } from './human-resources/human-resources.component';
-
+import { CreateUserComponent } from './User/create-user/create-user.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-     DefaultComponent, ECommerceComponent, AnalyticsComponent, DigitalMarketingComponent, HumanResourcesComponent
+     DefaultComponent, ECommerceComponent, AnalyticsComponent, DigitalMarketingComponent, HumanResourcesComponent, CreateUserComponent
   ],
   imports: [
+    FormsModule,
     CommonModule,
     DashboardRoutingModule,
     PerfectScrollbarModule

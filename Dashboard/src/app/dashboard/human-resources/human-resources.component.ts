@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from "../../application/Models/user";
 import {UserService} from "../../application/service/user.service";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { Router, ActivatedRoute } from "@angular/router";
 @Component({
   selector: 'app-human-resources',
   templateUrl: './human-resources.component.html',
@@ -13,7 +13,7 @@ export class HumanResourcesComponent implements OnInit {
   selectedUser: User;
   userForm: FormGroup;
 
-  constructor(private userService: UserService, private fb: FormBuilder) {
+  constructor(private userService: UserService, private fb: FormBuilder, private router: Router) {
     this.createForm();
   }
 
@@ -78,7 +78,6 @@ export class HumanResourcesComponent implements OnInit {
     const dayOfBirth = this.userForm.get('dayOfBirth').value;
 
     const user = new User();
-    user.Userid = Userid;
     user.username = username;
     user.firstname = firstname;
     user.lastname = lastname;
@@ -90,10 +89,10 @@ export class HumanResourcesComponent implements OnInit {
     user.roles = roles;
     user.dayOfBirth = dayOfBirth;
 
-     this.userService.createUser(user).subscribe((newUser: User) => {
+     this.userService.createUser(user).then((newUser: User) => {
        this.users.push(newUser);
        this.userForm.reset();
-     });
+     }).catch(err=>console.log(err));
    }
     /*this.userService.createUser(user).then((newUser: User) => {
       this.users.push(newUser.data);
@@ -113,9 +112,10 @@ export class HumanResourcesComponent implements OnInit {
       this.selectedUser = null;
     });
   }*/
-  onUpdate() {
+  /*onUpdate() {
     this.userService.updateUser(this.selectedUser).subscribe(
-      (updatedUser: User) => {
+      (response: any) => {
+        const updatedUser = response.data;
         const index = this.users.findIndex(user => user.Userid === updatedUser.Userid);
         if (index !== -1) {
           this.users[index] = updatedUser;
@@ -126,26 +126,26 @@ export class HumanResourcesComponent implements OnInit {
         console.error(error);
       }
     );
-  }
+  }*/
 
-
+/*
   onSearch(firstname: string) {
     this.userService.findByFirstname(firstname).subscribe(users => {
       this.users = users;
     });
   }
- /* reset() {
+  reset() {
     this.userForm.reset();
     this.selectedUser = null;
     this.getAllUsers();
   }*/
+  edit(id:number){
+    this.router.navigate(['/dashboard/human-resources/user/'+id])
+  }
 
   deleteById(id: number) {
-    if (this.users) {
-      const index = this.users.findIndex(user => user.Userid === id);
-      if (index !== -1) {
-        this.users.splice(index, 1);
-      }
-    }
+    this.userService.deleteById(this.users[id].userId.toString()).then((res)=>{
+      this.users.splice(id,1);
+    }).catch(err=>console.log(err))
   }
 }

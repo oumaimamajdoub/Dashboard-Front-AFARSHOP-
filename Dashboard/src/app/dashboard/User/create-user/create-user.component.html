@@ -1,0 +1,118 @@
+<div class="bg-login">
+  <!--wrapper-->
+  <div class="wrapper">
+    <header class="login-header shadow">
+      <nav class="navbar navbar-expand-lg navbar-light bg-white rounded fixed-top rounded-0 shadow-sm">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="assets/images/logo-img.png" width="140" alt="" />
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#"><i class='bx bx-home-alt me-1'></i>Home</a>
+              </li>
+              <li class="nav-item"> <a class="nav-link" href="#"><i class='bx bx-user me-1'></i>About</a>
+              </li>
+              <li class="nav-item"> <a class="nav-link" href="#"><i class='bx bx-category-alt me-1'></i>Features</a>
+              </li>
+              <li class="nav-item"> <a class="nav-link" href="#"><i class='bx bx-microphone me-1'></i>Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="d-flex align-items-center justify-content-center my-5">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-2">
+          <div class="col mx-auto">
+            <div class="card mt-5">
+              <div class="card-body">
+                <div class="border p-4 rounded">
+                  <div class="text-center">
+                    <h3 class="">Sign Up</h3>
+                  </div>
+                  <div class="form-body">
+                    <form class="form-horizontal auth-form" novalidate
+                          name="form"
+
+                          (ngSubmit)="form.valid && onAddUser()"
+                          #f="ngForm"
+                          novalidate>
+                      <div class="col-sm-6">
+                        <label  class="form-label">First Name</label>
+                        <input type="text" class="form-control" placeholder="Enter username"
+                               name="firstname"
+                               [(ngModel)]="form.username"
+
+                               required
+                               #username="ngModel"
+                               [ngClass]="{ 'is-invalid': f.submitted && username.errors }">
+                      </div>
+                      <div class="col-sm-6">
+                        <label  class="form-label">Last Name</label>
+                        <input type="text" class="form-control" placeholder="Enter firstname"
+                               name="firstname"
+                               [(ngModel)]="form.firstname"
+                               required
+                               #firstname="ngModel"
+                               [ngClass]="{ 'is-invalid': f.submitted && firstname.errors }">
+                      </div>
+                      <div class="col-12">
+                        <label  class="form-label">Email Address</label>
+                        <input type="email" class="form-control" placeholder="Enter Email Address"
+                               name="email"
+                               [(ngModel)]="form.email"
+                               required
+                               #email="ngModel"
+                               [ngClass]="{ 'is-invalid': f.submitted && email.errors }">
+                      </div>
+                      <div class="col-12">
+                        <label  class="form-label">Password</label>
+                        <div class="input-group" id="show_hide_password">
+                          <input type="password" class="form-control" placeholder="Enter Password"
+                                 name="password"
+                                 [(ngModel)]="form.password"
+                                 required
+                                 #password="ngModel"
+                                 [ngClass]="{ 'is-invalid': f.submitted && password.errors }">
+                          <input type="file" class="form-control" placeholder="Enter Password"
+                                 name="image"
+                                 [(ngModel)]="form.image"
+                                 required
+                                 #image="ngModel"
+                                 id="fileInput"
+                                 [ngClass]="{ 'is-invalid': f.submitted && image.errors }">
+
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+                          <label class="form-check-label" for="flexSwitchCheckChecked">I read and agree to Terms & Conditions</label>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="d-grid">
+                          <button type="submit" class="btn btn-primary" (click)="onAddUser()">Add User</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--end row-->
+      </div>
+    </div>
+    <footer class="bg-white shadow-sm border-top p-2 text-center fixed-bottom">
+      <p class="mb-0">Copyright © 2021. All right reserved.</p>
+    </footer>
+  </div>
+  <!--end wrapper-->
+</div>
+
